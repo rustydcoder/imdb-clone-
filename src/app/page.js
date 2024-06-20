@@ -6,10 +6,13 @@ const Home = async ({ searchParams }) => {
   const genre = searchParams.genre || "fetchTrending";
   console.log(genre);
 
-  const res = await fetch(`
+  const res = await fetch(
+    `
   https://api.themoviedb.org/3${
     genre === "fetchTopRated" ? `/movie/top_rated` : `/trending/all/week`
-  }?language=en-US&api_key=${API_KEY}`);
+  }?language=en-US&api_key=${API_KEY}`,
+    { next: { revalidate: 10000 } }
+  );
 
   const data = await res.json();
   if (!res.ok) {
