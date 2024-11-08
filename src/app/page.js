@@ -1,6 +1,6 @@
 import Results from "@/components/Results";
 
-const API_KEY = process.env.API_KEY;
+const NEXT_API_KEY = process.env.API_KEY;
 
 const Home = async ({ searchParams }) => {
   const genre = searchParams.genre || "fetchTrending";
@@ -9,7 +9,7 @@ const Home = async ({ searchParams }) => {
     `
   https://api.themoviedb.org/3${
     genre === "fetchTopRated" ? `/movie/top_rated` : `/trending/all/week`
-  }?language=en-US&api_key=${API_KEY}`,
+  }?language=en-US&api_key=${NEXT_API_KEY}`,
     { next: { revalidate: 10000 } }
   );
 
