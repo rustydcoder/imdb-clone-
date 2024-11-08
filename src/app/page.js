@@ -4,7 +4,6 @@ const API_KEY = process.env.API_KEY;
 
 const Home = async ({ searchParams }) => {
   const genre = searchParams.genre || "fetchTrending";
-  console.log(genre);
 
   const res = await fetch(
     `

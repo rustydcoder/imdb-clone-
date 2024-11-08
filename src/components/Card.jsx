@@ -12,6 +12,7 @@ const Card = ({ result }) => {
           }`}
           width={500}
           height={300}
+          alt={result.title}
           className="sm:rounded-t-lg group-hover:opacity-75 transition-opacity duration-300"
         />
         <div className="p-2">
